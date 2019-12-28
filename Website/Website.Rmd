@@ -1,0 +1,85 @@
+---
+title: "My Open Data Website"
+author: "Anonymous, Anonymous"
+date: "`r Sys.Date()`"
+bibliography: ["rpackages.bib", "bibliography.bib"]
+biblio-style: "apalike"
+link-citations: true
+always_allow_html: yes
+output:
+  rmdformats::material:
+    highlight: kate
+    collapsed: false
+    dev: png
+    self_contained: true
+    number_sections: true
+    code_folding: hide
+    thumbnails: true
+    gallery: true
+    fig_width: 6
+    fig_height: 3.5
+    df_print: kable
+  pdf_document:
+    fig_caption: true
+    keep_tex: true
+    latex_engine: xelatex
+    citation_package: natbib
+    dev: pdf
+---
+
+
+```{r knitr_init, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, paged.print=TRUE}
+## Global options
+library(knitr)
+options(max.print="75")
+opts_chunk$set(echo=TRUE,
+	             cache=FALSE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE,
+               fig.width = 6,
+               fig.height = 3.5,
+               fig.retina = 2
+               )
+opts_knit$set(width=100)
+
+# Load required libraries
+library(rmdformats)
+library(tidyverse)
+library(DT)
+# add libraries here
+```
+
+
+# Abstract
+
+
+
+
+# Data
+On this sub-page you can find the data used as a downloadable file (CSV, Excel, or PDF).
+
+```{r data_1, echo=TRUE, message=TRUE, warning=TRUE, paged.print=TRUE}
+data_df <- iris
+
+
+
+datatable(data_df, filter = list(position = 'top', clear = TRUE, plain = FALSE), extensions = c('Buttons','FixedColumns'), options = list(
+    dom = 'Bfrtip',
+    buttons = c('copy', 'csv', 'excel', 'pdf'),
+    scrollX = TRUE,
+    fixedColumns = TRUE
+  ))
+
+```   
+
+
+
+# Used Packages
+```{r results="asis"}
+source("prepare_bibliography.R")
+```
+
+# References
