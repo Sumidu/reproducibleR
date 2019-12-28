@@ -2,7 +2,7 @@
 title: "Untitled"
 author-inputfile: "anonauthors.tex" 
 abstract: |
-  The abstract should briefly summarize the contents of the paper in 150--250 words.
+  The replication crisis has The abstract should briefly summarize the contents of the paper in 150--250 words.
 keywords: "First keyword \\and Second keyword \\and Another keyword."
 bibliography: ["rpackages.bib", "bibliography.bib"]
 biblio-style: "apalike"
