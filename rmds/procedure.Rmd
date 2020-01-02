@@ -1,0 +1,44 @@
+# Procedure
+
+Process diagramms as in Figure `r ref("fig:diagramr")` can easily be created using the `r rmdtemplates::cite_pkg("DiagrammeR")` Package.
+
+```{r diagramr, echo=TRUE, fig.cap="Example"}
+
+library(DiagrammeR)
+
+grViz(diagram = "
+      digraph boxes_and_cicrles {
+      
+      graph [rankdir = LR]
+      
+      node [shape = box
+            fontname = Helvetica
+            ]
+      'Setup OSF Project Site'
+      Test
+      
+      node [shape = circle]
+      
+      Start
+      
+      edge []
+      
+      Start->'Setup OSF Project Site';
+      'Setup OSF Project Site'->Test;
+      }
+      "
+)
+
+```
+
+
+## Separation of Analysis and Data-Collection
+
+## Anonymization of Raw Data
+
+Option 1 `sdcMicro` 
+Option 2 `anonymizer` 
+
+
+## Preregistration
+

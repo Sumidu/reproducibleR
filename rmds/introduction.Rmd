@@ -1,96 +1,43 @@
 # Introduction
 
-# First Section
-## A Subsection Sample
-Please note that the first paragraph of a section or subsection is
-not indented. The first paragraph that follows a table, figure,
-equation etc. does not need an indent, either.
+The scientific database Scopus lists over 73,000 entries for the search term "reproducible research" at the time of writing this document. The importance of making research reproducible was recognized in the early 1950s in multiple research subjects. And with the reproducibility project the Open Science Foundation [@open2015estimating] found that merely half of all studies conducted in psychological research can be replicated by other researchers. 
+Several factors have contributed to this problem. From a high level perspective, the pressure to publish and the increase in scientific output has lead to a plethora of findings that will not replicate. Both bad research design and (possibly unintentional) bad research practices have increased the amount of papers that hold little to no value. 
 
-Subsequent paragraphs, however, are indented.
+# Problematic Research Practices
 
-### Sample Heading (Third Level) 
-Only two levels of
-headings should be numbered. Lower level headings remain unnumbered;
-they are formatted as run-in headings.
+One problem that is often mentioned is HARKing [@kerr1998harking] or "hypothesizing after results are known". When multiple statistical tests are conducted with a normal alpha-error rate (e.g., $\alpha = .05$), it is expected that some tests will reject the null-hypothesis on mere randomness alone. Hence, the error-rate. If researchers now claim that these findings were their initial hypotheses, results will be indiscernible from randomness. However, this is unknown to the reviewer or reader who only hears about the new hypotheses. HARKing produces findings were there are none. It is thus crucial to determine the research hypothesis before collecting (or analyzing) the data.
 
-#### Sample Heading (Fourth Level)
-The contribution should contain no more than four levels of
-headings. Table`r ref("tab1")` gives a summary of all heading levels.
+Another strategy applied (often without ill intent) is p-hacking [@head2015extent]. This technique is widespread in scientific publications and probably already is shifting consensus in science. p-hacking refers to techniques that alter the data until the desired *p*-value is reached. Omitting individual *outliers*, creating different grouping variables, adding or removing control variables---all these techniques can be considered p-hacking. This process also leads to results that will not hold under replication. It is crucial to show what modifications have been performed on data to evaluate the interpretability of *p*-values. 
 
-Another nice feature are shortcuts for \eg and \ie 
+When researchers already "massage" the data to attain *better* *p*-values, it is additionally bad that many researchers do not understand the meaning of *p*-values. As @colquhoun2017reproducibility found, many research misinterpret *p*-values and thus frame their findings much stronger than they really are.
+Adequate reporting of *p*-values is thus important to the interpretability of results as well.
 
-# References
-You can cite any paper in parenthesis as following [@valdez2017priming] or inline saying that @valdez2017priming found something.
-Multiple citations are possible as well [@valdez2017priming;@valdez2019users].
-
-You can refer to other sections by kebab-casing to section`r ref("a-subsection-sample")`. You can easily cite an r-package directly in the text by using the `cite_pkg` function from the package `r rmdtemplates::cite_pkg("rmdtemplates")`. 
-
-Refer to figure `r ref("fig:fig1")`.
-
-# Environments
-
-The environments 'definition', 'lemma', 'proposition', 'corollary', 'remark', and 'example' are defined in the LLNCS document class as well.
+Lastly, scientific journals have to problem that they are mostly interested in publishing significant results. Thus contradictory "non-findings" seldom get published in renowned journals. There is little "value" for a researcher to publish non-significant findings, as the additional work to write a manuscript for something like *arXiv* does often not reap the same reward as a journal publication. This so-called *publication bias* [@simonsohn2014p] worsens the crisis. As now only significant findings are available. It is thus necessary to simplify the process of publishing non-significant results.
 
 
-## Theorems
+# Reproducible Research Workflows
+Many different solutions to this process have been proposed to address these challenges (e.g., [@marwick2018packaging;@wilson2017good]). However, no uniform process exists that allows creating of documents and alternative reproducibility materials in one workflow. 
 
-```{r echo=FALSE, results='asis'}
-theorem <- generate_environment("Theorem")
-theorem("This is a sample theorem. The run-in heading is set in bold, 
-        while the following text appears in italics. Definitions, lemmas, propositions, 
-        and corollaries are styled the same way.")
-```
+In this paper, we demonstrate a research workflow based on the R-language and the R Markdown format. This paper was written using this workflow and the sources are freely available online (https://www.osf.org/kcbj5). Our workflow directly addresses the challenge of writing LNCS papers and a companion paper website that includes additional material and downloadable data.
 
 
 
-## Equations
-\begin{equation}
-x + y = z
-\end{equation}
+In this paper, we will focus on the following aspects:
 
-
-
-## Tables
-You can get the non breaking space in RStudio by pressing ALT+SPACE.
-You can refer to tables by using Table`r ref("tab:table1")`.
-
-```{r table1}
-# Note that the label has to be added manually in the caption here.
-iris %>% 
-  head() %>% 
-  knitr::kable(caption = "Test", booktabs = T, longtable = F) 
-```
-
-
-### Inline Latex Tables
-You can directly add latex tables.
-
-\begin{table}
-\caption{Table captions should be placed above the
-tables.}\label{tab1}
-\begin{tabular}{|l|l|l|}
-\hline
-Heading level &  Example & Font size and style\\
-\hline
-Title (centered) &  {\Large\bfseries Lecture Notes} & 14 point, bold\\
-1st-level heading &  {\large\bfseries 1 Introduction} & 12 point, bold\\
-2nd-level heading & {\bfseries 2.1 Printing Area} & 10 point, bold\\
-3rd-level heading & {\bfseries Run-in Heading in Bold.} Text follows & 10 point, bold\\
-4th-level heading & {\itshape Lowest Level Heading.} Text follows & 10 point, italic\\
-\hline
-\end{tabular}
-\end{table}
-
-
-## Figures
-
-You can refer to tables by using Figure \ref{fig:fig1}.
-
-```{r fig1, fig.cap="This is the text caption under the figure"}
-# Note that the label for a figure is always fig:chunkname
-iris %>% ggplot() + aes(x = Sepal.Length) + geom_histogram() + cowplot::theme_minimal_hgrid()
-
-```
+* Creating a research compendium [@gentleman2007statistical]
+* Literate programming
+* Creating LNCS Papers using `r cite_pkg("rmdtemplates")`
+* Creating a project oriented workflow
+* The use of Version control and a public repository @bryan2018excuse
+* Creating a project read me using R Markdown
+* Making use of github-pages for companion websites
+* Use of osf for preregistration
+* Anonymization and Data replacement using `r cite_pkg("sdcMicro")`
+* Use of packrat for package management
+* Several helpful packages for a reproducible workflow (`r cite_pkg("here")`, `r cite_pkg("usethis")`, `r cite_pkg("drake")`)
+* Several helpful packages for interactive, yet reproducible research in RStudio (`r cite_pkg("citr")`, `r cite_pkg("gramr")`, `r cite_pkg("questionr")`, `r cite_pkg("esquisse")`)
+* Creating powerful plots using `r cite_pkg("ggstatsplot")`
+* Create research process plots using `r cite_pkg("DiagrammeR")`
 
 
 

@@ -1,0 +1,54 @@
+Other have published similar approaches to "data packing" @marwick2018packaging
+
+Approaches to computational research @wilson2017good
+
+
+
+Project oriented workflow
+
+Use of Version control and a public repository @bryan2018excuse
+gh-pages
+
+Use of osf
+
+packrat 
+
+Literate programming
+
+Here
+
+
+usethis
+
+readme.Rmd
+
+license
+
+drake for complex operations
+
+
+Addins
+
+
+
+The paper is the advertisement
+“an article about computational result is advertising, not scholarship. The actual scholarship is the full software environment, code and data, that produced the result.”
+
+John Claerbout paraphrased in Buckheit and Donoho (1995)
+
+Compendium @gentleman2007statistical
+
+
+
+
+
+esquisse
+
+
+ggstatsplot
+
+citr
+
+questionr
+
+gramr

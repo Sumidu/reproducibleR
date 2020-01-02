@@ -1,10 +1,10 @@
 ---
-title: "Making Reproducible Research Simple using RMarkdown"
+title: "Making Reproducible Research Simple using RMarkdown and the OSF"
 author-inputfile: "anonauthors.tex" 
 abstract: |
-  The replication crisis has eroded the public's trust in science. Many famous studies, even published in renowed journals, fail to produce the same results when replicated by other researchers. While this is the outcome of several problems in research, one aspect has gotten critical attention. The term reproducible research refers to studies that contain all materials necessary to reproduce the scientific results by other researchers. This allows other to identify flaws in calculations and improve scientific rigor. In this paper, we show a workflow for reproducible research using the R language and a set off additional packages.  
+  The replication crisis has eroded the public's trust in science. Many famous studies, even published in renowed journals, fail to produce the same results when replicated by other researchers. While this is the outcome of several problems in research, one aspect has gotten critical attention---reproducibility. The term reproducible research refers to studies that contain all materials necessary to reproduce the scientific results by other researchers. This allows other to identify flaws in calculations and improve scientific rigor. In this paper, we show a workflow for reproducible research using the R language and a set of additional packages and tools that simplify a reproducible research procedure.   
 keywords: "First keyword \\and Second keyword \\and Another keyword."
-bibliography: ["rpackages.bib", "bibliography.bib"]
+bibliography: ["rpackages.bib", "../bib/bibliography.bib"]
 biblio-style: "apalike"
 link-citations: true
 output:
@@ -39,16 +39,24 @@ library(rmdformats)
 library(rmdtemplates)
 library(tidyverse)
 library(cowplot)
+library(osfr)
 # add libraries here
 
 # Add libraries to cite here:
-pkgs <- c("knitr", "tidyverse", "rmdformats", "kableExtra", "scales", "psych", "rmdtemplates")
+pkgs <- c("knitr", "tidyverse", "rmdformats", "kableExtra", "scales", "psych", "rmdtemplates", "sdcMicro", "webshot", "here", "DiagrammeR", "citr", "drake", "esquisse", "usethis", "gramr", "questionr", "ggstatsplot")
 rmdtemplates::write_bib(pkgs)
+```
+
+```{r osf, echo=FALSE}
+osf_GUID <- "kcbj5"
 ```
 
 
 
 ```{r child = '../rmds/introduction.Rmd'}
+```
+
+```{r child = '../rmds/procedure.Rmd', eval=FALSE}
 ```
 
 
