@@ -51,7 +51,7 @@ library(rmdtemplates)
 # add libraries here
 
 # Add libraries to cite here:
-pkgs <- c("knitr", "tidyverse", "rmdformats", "kableExtra", "scales", "psych", "rmdtemplates", "DiagrammeR", "webshot")
+pkgs <- c("knitr", "tidyverse", "rmdformats", "kableExtra", "scales", "psych", "rmdtemplates", "sdcMicro", "webshot", "here", "DiagrammeR", "citr", "drake", "esquisse", "usethis", "gramr", "questionr", "ggstatsplot")
 rmdtemplates::write_bib(pkgs)
 options(kableExtra.auto_format = FALSE)
 ```
@@ -63,9 +63,20 @@ The replication crisis has eroded the public's trust in science. Many famous stu
 ```{r child = '../rmds/introduction.Rmd'}
 ```
 
-```{r child = '../rmds/procedure.Rmd', EVAL = FALSE}
+```{r child = '../rmds/research_compendium.Rmd'}
 ```
 
+```{r child = '../rmds/open.Rmd'}
+```
+
+```{r child = '../rmds/drake.Rmd'}
+```
+
+```{r child = '../rmds/procedure.Rmd', eval = TRUE}
+```
+
+```{r child = '../rmds/discussion.Rmd', eval = TRUE}
+```
 
 
 # Data
