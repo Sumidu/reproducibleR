@@ -1,8 +1,8 @@
 ---
 title: "Making Reproducible Research Simple using RMarkdown and the OSF"
-author: "Anonymous, Anonymous"
+author: "André Calero Valdez"
 date: "`r Sys.Date()`"
-bibliography: ["rpackages.bib", "../bib/bibliography.bib"]
+bibliography: ["../Paper/rpackages.bib", "../bib/bibliography.bib"]
 #biblio-style: "apalike"
 link-citations: true
 always_allow_html: yes

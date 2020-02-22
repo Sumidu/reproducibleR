@@ -1,0 +1,15 @@
+# Writing a Reseach Compendium
+
+[@gentleman2007statistical]
+
+## Project Workflow
+
+## Literate programming
+
+
+* Creating a research compendium [@gentleman2007statistical]
+* Creating a project oriented workflow
+* Literate programming
+* Use of packrat for package management
+* Anonymization and Data replacement using `r cite_pkg("sdcMicro")`
+* Creating LNCS Papers using `r cite_pkg("rmdtemplates")`

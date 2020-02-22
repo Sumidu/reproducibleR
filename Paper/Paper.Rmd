@@ -56,8 +56,21 @@ osf_GUID <- "kcbj5"
 ```{r child = '../rmds/introduction.Rmd'}
 ```
 
-```{r child = '../rmds/procedure.Rmd', eval = FALSE}
+```{r child = '../rmds/research_compendium.Rmd'}
 ```
+
+```{r child = '../rmds/open.Rmd'}
+```
+
+```{r child = '../rmds/drake.Rmd'}
+```
+
+```{r child = '../rmds/procedure.Rmd', eval = TRUE}
+```
+
+```{r child = '../rmds/discussion.Rmd', eval = TRUE}
+```
+
 
 
 # Acknowledgements {-}

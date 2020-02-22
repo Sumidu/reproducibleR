@@ -1,0 +1,11 @@
+# Automizing builds using drake
+
+```{r}
+library(drake)
+readd("hist")
+```
+
+* Several helpful packages for a reproducible workflow (`r cite_pkg("here")`, `r cite_pkg("usethis")`, `r cite_pkg("drake")`)
+* Several helpful packages for interactive, yet reproducible research in RStudio (`r cite_pkg("citr")`, `r cite_pkg("gramr")`, `r cite_pkg("questionr")`, `r cite_pkg("esquisse")`)
+* Creating powerful plots using `r cite_pkg("ggstatsplot")`
+* Create research process plots using `r cite_pkg("DiagrammeR")`
