@@ -3,7 +3,7 @@ title: "Making Reproducible Research Simple using RMarkdown and the OSF"
 author: "Anonymous, Anonymous"
 date: "`r Sys.Date()`"
 bibliography: ["rpackages.bib", "../bib/bibliography.bib"]
-biblio-style: "apalike"
+#biblio-style: "apalike"
 link-citations: true
 always_allow_html: yes
 output:
@@ -21,12 +21,6 @@ output:
     fig_height: 3.5
     df_print: kable
     use_bookdown: true
-  pdf_document:
-    fig_caption: true
-    keep_tex: true
-    latex_engine: xelatex
-    citation_package: natbib
-    dev: pdf
 ---
 
 
@@ -69,7 +63,7 @@ The replication crisis has eroded the public's trust in science. Many famous stu
 ```{r child = '../rmds/introduction.Rmd'}
 ```
 
-```{r child = '../rmds/procedure.Rmd'}
+```{r child = '../rmds/procedure.Rmd', EVAL = FALSE}
 ```
 
 
