@@ -18,7 +18,7 @@ Lastly, scientific journals have to problem that they are mostly interested in p
 # Reproducible Research Workflows
 Many different solutions to this process have been proposed to address these challenges (e.g., [@marwick2018packaging;@wilson2017good]). However, no uniform process exists that allows creating of documents and alternative reproducibility materials in one workflow. 
 
-In this paper, we demonstrate a research workflow based on the R-language and the R Markdown format. This paper was written using this workflow and the sources are freely available online (https://www.osf.org/kcbj5). Our workflow directly addresses the challenge of writing LNCS papers and a companion paper website that includes additional material and downloadable data.
+In this paper, we demonstrate a research workflow based on the R-language and the R Markdown format. This paper was written using this workflow and the sources are freely available online (https://www.osf.io/kcbj5). Our workflow directly addresses the challenge of writing LNCS papers and a companion paper website that includes additional material and downloadable data.
 
 
 
