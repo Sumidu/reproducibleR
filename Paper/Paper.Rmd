@@ -1,12 +1,13 @@
 ---
 title: "Making Reproducible Research Simple using RMarkdown and the OSF"
-author-inputfile: "anonauthors.tex" 
+author-inputfile: "authors.tex" 
 abstract: |
-  The replication crisis has eroded the public's trust in science. Many famous studies, even published in renowed journals, fail to produce the same results when replicated by other researchers. While this is the outcome of several problems in research, one aspect has gotten critical attention---reproducibility. The term reproducible research refers to studies that contain all materials necessary to reproduce the scientific results by other researchers. This allows other to identify flaws in calculations and improve scientific rigor. In this paper, we show a workflow for reproducible research using the R language and a set of additional packages and tools that simplify a reproducible research procedure.   
-keywords: "First keyword \\and Second keyword \\and Another keyword."
+  The replication crisis has further eroded the public's trust in science. Many famous studies, even published in renowed journals, fail to produce the same results when replicated by other researchers. While this is the outcome of several problems in research, one aspect has gotten critical attention---reproducibility. The term reproducible research refers to studies that contain all materials necessary to reproduce the scientific results by other researchers. This allows others to identify flaws in calculations and improve scientific rigor. In this paper, we show a workflow for reproducible research using the R language and a set of additional packages and tools that simplify a reproducible research procedure.   
+keywords: "Reproducible Research \\and Replication Crisis \\and Literate Programming."
 bibliography: ["rpackages.bib", "../bib/bibliography.bib"]
 biblio-style: "apalike"
 link-citations: true
+always_allow_html: true
 output:
   bookdown::pdf_document2:
     fig_caption: true
@@ -19,20 +20,20 @@ output:
 ---
 
 
-```{r knitr_init, echo=FALSE, message=FALSE, warning=FALSE, cache=FALSE, paged.print=TRUE}
+```{r knitr_init, echo = FALSE, message = FALSE, warning = FALSE, cache = FALSE, paged.print = TRUE}
 ## Global options
 library(knitr)
-#options(max.print="75")
-opts_chunk$set(echo=FALSE,
-	             cache=FALSE,
-               prompt=FALSE,
-               tidy=TRUE,
-               comment=NA,
-               message=FALSE,
-               warning=FALSE,
-               out.width='100%'
+#options(max.print = "75")
+opts_chunk$set(echo = FALSE,
+	             cache = FALSE,
+               prompt = FALSE,
+               tidy = TRUE,
+               comment = NA,
+               message = FALSE,
+               warning = FALSE,
+               out.width = '100%'
                )
-opts_knit$set(width=100)
+opts_knit$set(width = 100)
 
 # Load required libraries
 library(rmdformats)
@@ -47,7 +48,7 @@ pkgs <- c("knitr", "tidyverse", "rmdformats", "kableExtra", "scales", "psych", "
 rmdtemplates::write_bib(pkgs)
 ```
 
-```{r osf, echo=FALSE}
+```{r osf, echo = FALSE}
 osf_GUID <- "kcbj5"
 ```
 
@@ -56,14 +57,27 @@ osf_GUID <- "kcbj5"
 ```{r child = '../rmds/introduction.Rmd'}
 ```
 
-```{r child = '../rmds/procedure.Rmd', eval=FALSE}
+```{r child = '../rmds/research_compendium.Rmd'}
+```
+
+```{r child = '../rmds/open.Rmd'}
+```
+
+```{r child = '../rmds/drake.Rmd'}
+```
+
+```{r child = '../rmds/procedure.Rmd', eval = TRUE}
+```
+
+```{r child = '../rmds/discussion.Rmd', eval = TRUE}
 ```
 
 
+
 # Acknowledgements {-}
-We would like to thank xyz.
+This research was supported by the Digital Society research program funded by the Ministry of Culture and Science of the German State of North Rhine-Westphalia.
 We would further like to thank the authors of the packages we have used.
-```{r r_citations, eval=TRUE, include=TRUE, results="asis"}
+```{r r_citations, eval = TRUE, include = TRUE, results = "asis"}
 rmdtemplates::line_cite(pkgs) # This creates a single line citing all packages
 #rmdtemplates::list_cite(pkgs) # This creates a "thightlist" of all packages 
 ```

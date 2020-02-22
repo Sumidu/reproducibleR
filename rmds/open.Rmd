@@ -1,0 +1,10 @@
+---
+title: donotuse
+---
+# Open Data and open code
+
+
+* The use of Version control and a public repository @bryan2018excuse
+* Creating a project read me using R Markdown
+* Making use of github-pages for companion websites
+* Use of osf for preregistration

@@ -1,9 +1,9 @@
 ---
 title: "Making Reproducible Research Simple using RMarkdown and the OSF"
-author: "Anonymous, Anonymous"
+author: "André Calero Valdez"
 date: "`r Sys.Date()`"
-bibliography: ["rpackages.bib", "../bib/bibliography.bib"]
-biblio-style: "apalike"
+bibliography: ["../Paper/rpackages.bib", "../bib/bibliography.bib"]
+#biblio-style: "apalike"
 link-citations: true
 always_allow_html: yes
 output:
@@ -21,12 +21,6 @@ output:
     fig_height: 3.5
     df_print: kable
     use_bookdown: true
-  pdf_document:
-    fig_caption: true
-    keep_tex: true
-    latex_engine: xelatex
-    citation_package: natbib
-    dev: pdf
 ---
 
 
@@ -57,7 +51,7 @@ library(rmdtemplates)
 # add libraries here
 
 # Add libraries to cite here:
-pkgs <- c("knitr", "tidyverse", "rmdformats", "kableExtra", "scales", "psych", "rmdtemplates", "DiagrammeR", "webshot")
+pkgs <- c("knitr", "tidyverse", "rmdformats", "kableExtra", "scales", "psych", "rmdtemplates", "sdcMicro", "webshot", "here", "DiagrammeR", "citr", "drake", "esquisse", "usethis", "gramr", "questionr", "ggstatsplot")
 rmdtemplates::write_bib(pkgs)
 options(kableExtra.auto_format = FALSE)
 ```
@@ -69,9 +63,20 @@ The replication crisis has eroded the public's trust in science. Many famous stu
 ```{r child = '../rmds/introduction.Rmd'}
 ```
 
-```{r child = '../rmds/procedure.Rmd'}
+```{r child = '../rmds/research_compendium.Rmd'}
 ```
 
+```{r child = '../rmds/open.Rmd'}
+```
+
+```{r child = '../rmds/drake.Rmd'}
+```
+
+```{r child = '../rmds/procedure.Rmd', eval = TRUE}
+```
+
+```{r child = '../rmds/discussion.Rmd', eval = TRUE}
+```
 
 
 # Data

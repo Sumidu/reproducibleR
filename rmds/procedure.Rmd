@@ -1,6 +1,10 @@
+---
+title: donotuse
+---
+
 # Procedure
 
-Process diagramms as in Figure `r ref("fig:diagramr")` can easily be created using the `r rmdtemplates::cite_pkg("DiagrammeR")` Package.
+Process diagramms as in Figure \@ref(fig:diagramr) can easily be created using the `r rmdtemplates::cite_pkg("DiagrammeR")` Package.
 
 ```{r diagramr, echo=TRUE, fig.cap="Example"}
 

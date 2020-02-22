@@ -1,3 +1,6 @@
+---
+title: donotuse
+---
 # Introduction
 
 The scientific database Scopus lists over 73,000 entries for the search term "reproducible research" at the time of writing this document. The importance of making research reproducible was recognized in the early 1950s in multiple research subjects. And with the reproducibility project the Open Science Foundation [@open2015estimating] found that merely half of all studies conducted in psychological research can be replicated by other researchers. 
@@ -18,26 +21,19 @@ Lastly, scientific journals have to problem that they are mostly interested in p
 # Reproducible Research Workflows
 Many different solutions to this process have been proposed to address these challenges (e.g., [@marwick2018packaging;@wilson2017good]). However, no uniform process exists that allows creating of documents and alternative reproducibility materials in one workflow. 
 
-In this paper, we demonstrate a research workflow based on the R-language and the R Markdown format. This paper was written using this workflow and the sources are freely available online (https://www.osf.org/kcbj5). Our workflow directly addresses the challenge of writing LNCS papers and a companion paper website that includes additional material and downloadable data.
+In this paper, we demonstrate a research workflow based on the R-language and the R Markdown format. This paper was written using this workflow and the sources are freely available online (https://www.osf.io/kcbj5). Our workflow directly addresses the challenge of writing LNCS papers and a companion paper website (https://sumidu.github.io/reproducibleR/) that includes additional material and downloadable data.
 
 
 
 In this paper, we will focus on the following aspects:
 
-* Creating a research compendium [@gentleman2007statistical]
-* Literate programming
-* Creating LNCS Papers using `r cite_pkg("rmdtemplates")`
-* Creating a project oriented workflow
-* The use of Version control and a public repository @bryan2018excuse
-* Creating a project read me using R Markdown
-* Making use of github-pages for companion websites
-* Use of osf for preregistration
-* Anonymization and Data replacement using `r cite_pkg("sdcMicro")`
-* Use of packrat for package management
-* Several helpful packages for a reproducible workflow (`r cite_pkg("here")`, `r cite_pkg("usethis")`, `r cite_pkg("drake")`)
-* Several helpful packages for interactive, yet reproducible research in RStudio (`r cite_pkg("citr")`, `r cite_pkg("gramr")`, `r cite_pkg("questionr")`, `r cite_pkg("esquisse")`)
-* Creating powerful plots using `r cite_pkg("ggstatsplot")`
-* Create research process plots using `r cite_pkg("DiagrammeR")`
+* Creating a reproducible research compendium using RMarkdown
+* Using github and the OSF to make research accessible
+* Packages that simplify research in RStudio
+
+
+
+
 
 
 
