@@ -1,3 +1,6 @@
+---
+title: donotuse
+---
 # Writing a Reseach Compendium
 
 [@gentleman2007statistical]
@@ -12,4 +15,4 @@
 * Literate programming
 * Use of packrat for package management
 * Anonymization and Data replacement using `r cite_pkg("sdcMicro")`
-* Creating LNCS Papers using `r cite_pkg("rmdtemplates")`
+* Creating LNCS Papers using `r cite_pkg("rmdtemplates")` 
