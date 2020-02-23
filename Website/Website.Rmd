@@ -2,7 +2,7 @@
 title: "Making Reproducible Research Simple using RMarkdown and the OSF"
 author: "André Calero Valdez"
 date: "`r Sys.Date()`"
-bibliography: ["../Paper/rpackages.bib", "../bib/bibliography.bib"]
+bibliography: ["../bib/rpackages.bib", "../bib/bibliography.bib"]
 #biblio-style: "apalike"
 link-citations: true
 always_allow_html: yes
@@ -52,7 +52,7 @@ library(rmdtemplates)
 
 # Add libraries to cite here:
 pkgs <- c("knitr", "tidyverse", "rmdformats", "kableExtra", "scales", "psych", "rmdtemplates", "sdcMicro", "webshot", "here", "DiagrammeR", "citr", "drake", "esquisse", "usethis", "gramr", "questionr", "ggstatsplot")
-rmdtemplates::write_bib(pkgs)
+#rmdtemplates::write_bib(pkgs)
 options(kableExtra.auto_format = FALSE)
 ```
 ```{r include=FALSE}

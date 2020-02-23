@@ -31,6 +31,8 @@ create_plot <- function(data){
     labs(title = "Example plot from drake")
 }
 
+gen_bib <- drake::code_to_function("bib/generate_bib_file.R")
+
 # each step of the plan keeps track of what is used where.
 plan <- drake_plan(
   
@@ -46,7 +48,8 @@ plan <- drake_plan(
   
   # fit a model
   fit = lm(Sepal.Width ~ Petal.Width + Species, data),
- 
+  
+  bibfile = gen_bib(drake::file_out("bib/rpackages.bib")),
    # render the pdf document
   report = rmarkdown::render(
     knitr_in("Paper/Paper.Rmd"),
