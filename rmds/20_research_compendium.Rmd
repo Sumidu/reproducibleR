@@ -2,7 +2,22 @@
 title: donotuse
 ---
 # Writing a Reseach Compendium
-The central aim of a research compendium is to provide all data and information necessary to allow others to reproduce your findings [@gentleman2007statistical].
+The central aim of a research compendium is to provide all data and information necessary to allow others to reproduce your findings from your data [@gentleman2007statistical]. There are several different ways of achieving this but a central theme of research compendia is to organize data in a meaningful fashion. Since we are adressing R users, it makes sense to consider possible computing environments for R first.
+
+
+## Why R and RMarkdown?
+R is the de-facto standard when it comes to statistical analyses tools that are open source and free to use. In economics and the social sciences similar tools that provide a GUI like SPSS are used with one immediate downside for reproducibility. If your analysis toolkit is proprietary, other users will not be able to reproduce your work without a significant investment. Moreover, using a GUI makes it intraceble---even to yourself---what analyses you have conducted later. You might have manually deleted a row with broken data, or might have recoded a typing error in your data manually. If this is not docume
+
+
+## Project workflows
+The most popular integrated development environment (IDE) for R is RStudio. RStudio comes with an license that allows research to freely use it for scientific purposes and it integrates many of the tools described in this paper. The first strong tool for reproducible research using R is using RStudio projects.
+
+RStudio projects contain information about where your code, your data, and your output should reside on your computer. The benefit of RStudio projects is that they contain relative path informations, so when another user installs your project on their computer, it should work without a problem. Since you need to refer to files in some cases, even relative paths the `here` package provides a helpful tool to access data relative to the project main directory. This works on Linux, Windows and Mac computers.
+
+## Package management
+
+
+## Writing Articles using `rmdtemplates`
 
 [CRAN](https://cran.r-project.org/web/views/ReproducibleResearch.html).
 
