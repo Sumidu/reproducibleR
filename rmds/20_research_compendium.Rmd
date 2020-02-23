@@ -4,10 +4,19 @@ title: donotuse
 # Writing a Reseach Compendium
 The central aim of a research compendium is to provide all data and information necessary to allow others to reproduce your findings from your data [@gentleman2007statistical]. There are several different ways of achieving this but a central theme of research compendia is to organize data in a meaningful fashion. Since we are adressing R users, it makes sense to consider possible computing environments for R first.
 
+You can find detailed further informaiton on how to create research compendia online: https://research-compendium.science/
 
 ## Why R and RMarkdown?
-R is the de-facto standard when it comes to statistical analyses tools that are open source and free to use. In economics and the social sciences similar tools that provide a GUI like SPSS are used with one immediate downside for reproducibility. If your analysis toolkit is proprietary, other users will not be able to reproduce your work without a significant investment. Moreover, using a GUI makes it intraceble---even to yourself---what analyses you have conducted later. You might have manually deleted a row with broken data, or might have recoded a typing error in your data manually. If this is not docume
+R is the de-facto standard when it comes to statistical analyses tools that are open source and free to use. In economics and the social sciences similar tools that provide a GUI like SPSS are used with one immediate downside for reproducibility. If your analysis toolkit is proprietary, other users will not be able to reproduce your work without a significant investment. 
 
+Moreover, using a GUI makes it intraceble---even to yourself---what analyses you have conducted later. You might have manually deleted a row with broken data, or might have recoded a typing error in your data manually. If this is not documented, this information is lost. Using a language like R, where every change of the data corresponds to line of code, no accidental "quick fixes" will get lost over time.
+
+## Literate Programming
+*RMarkdown* is a tool that is extremely helpful for researchers, as it allows to combine analysis code with regular text. This document was written using RMarkdown and integrating some analysis code in between. RMarkdown is a *literate programming* appraoch. The documentation of code is equally necessary in underanding the code, as the code itself. By interleaving code and text, intentions of the developer are implicitly communicated. Python and Julia have similar approaches by using Jupyter notebooks.
+
+RMarkdown allows not only for an integration of text and figures directly from code, it allows writing in an abstract format. A single document (such as this) can be rendered to various output format. In this case, it is rendered to the LNCS styled Latex output format, as well as to a website using bootstrap. The benefit is that text and code are reusable, so when papers get rejected no excessive reformatting has to be made. Formatting is down using Markdown (see [here](https://www.markdowntutorial.com/)[^1] for a tutorial).
+
+[^1:] https://www.markdowntutorial.com/
 
 ## Project workflows
 The most popular integrated development environment (IDE) for R is RStudio. RStudio comes with an license that allows research to freely use it for scientific purposes and it integrates many of the tools described in this paper. The first strong tool for reproducible research using R is using RStudio projects.
@@ -16,15 +25,19 @@ RStudio projects contain information about where your code, your data, and your 
 
 ## Package management
 
+packrat
+renv
+docker
+rstudio.cloud projects
+
+## Data Sharing and Anonymization
 
 ## Writing Articles using `rmdtemplates`
 
 [CRAN](https://cran.r-project.org/web/views/ReproducibleResearch.html).
 
-## Project Workflow
 
-## Literate programming
-renv
+
 
 * Creating a research compendium [@gentleman2007statistical]
 * Creating a project oriented workflow

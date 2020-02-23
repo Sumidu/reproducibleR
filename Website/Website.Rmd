@@ -55,6 +55,10 @@ pkgs <- c("knitr", "tidyverse", "rmdformats", "kableExtra", "scales", "psych", "
 rmdtemplates::write_bib(pkgs)
 options(kableExtra.auto_format = FALSE)
 ```
+```{r include=FALSE}
+# drake dependency
+file.exists("../Paper/rpackages.bib")
+```
 
 
 # Abstract {-}
