@@ -4,12 +4,16 @@ title: donotuse
 # Writing a Reseach Compendium
 The central aim of a research compendium is to provide all data and information necessary to allow others to reproduce your findings from your data [@gentleman2007statistical]. There are several different ways of achieving this but a central theme of research compendia is to organize data in a meaningful fashion. Since we are adressing R users, it makes sense to consider possible computing environments for R first.
 
-You can find detailed further informaiton on how to create research compendia online: https://research-compendium.science/
+You can find detailed further information on how to create research compendium online: https://research-compendium.science/
+
 
 ## Why R and RMarkdown?
 R is the de-facto standard when it comes to statistical analyses tools that are open source and free to use. In economics and the social sciences similar tools that provide a GUI like SPSS are used with one immediate downside for reproducibility. If your analysis toolkit is proprietary, other users will not be able to reproduce your work without a significant investment. 
 
-Moreover, using a GUI makes it intraceble---even to yourself---what analyses you have conducted later. You might have manually deleted a row with broken data, or might have recoded a typing error in your data manually. If this is not documented, this information is lost. Using a language like R, where every change of the data corresponds to line of code, no accidental "quick fixes" will get lost over time.
+Moreover, using a GUI makes it intraceable---even to yourself---what analyses you have conducted later. You might have manually deleted a row with broken data, or might have recoded a typing error in your data manually. If this is not documented, this information is lost. Using a language like R, where every change of the data corresponds to line of code, no accidental "quick fixes" will get lost over time.
+R also provides a rich set of tools for reproducible researach on CRAN[^CRAN].
+
+[^CRAN]:https://cran.r-project.org/web/views/ReproducibleResearch.html
 
 ## Literate Programming
 *RMarkdown* is a tool that is extremely helpful for researchers, as it allows to combine analysis code with regular text. This document was written using RMarkdown and integrating some analysis code in between. RMarkdown is a *literate programming* appraoch. The documentation of code is equally necessary in understanding the code, as the code itself. By interleaving code and text, intentions of the developer are implicitly communicated. Python and Julia have similar approaches by using Jupyter notebooks.
@@ -42,19 +46,19 @@ There are options of sharing your runtime environment without asking other resea
 
 An even simpler version is the use of **binder**. Binder can be setup to automatically build your project on a virtual machine and provide an RStudio instance on the virtual machine that has access to your project. However, to make this work, you need to use a version control system, more specifically you need to use github with your project. The auto-generated binder link from the www.mybinder.org website can be extended to use RStudio by adding `?urlpath=rstudio` to the url. You can check the Readme of this project on github to see how it is done. 
 
-
-## Data Sharing and Anonymization
-
 ## Writing Articles using `rmdtemplates`
+The package `rmdtemplates` [@R-rmdtemplates] provides templates for writing RMarkdown files that adhere to the Lecture Notes in Computer Sciences series. It also contains a template for an open data website. This website allows to create a reader friendly version of your paper to send around. 
+Moreover, you can add additional analyses in the open data website which can then be added as supplementary materials to your paper. You must ensure though that copyrights are respected when sharing the written content of your paper. 
 
-[CRAN](https://cran.r-project.org/web/views/ReproducibleResearch.html).
+Key benefits of the `rmdtemplates` package are that it supports to automatically generate citations for the R packages that you use. RMarkdown uses bib-files to store your references. To make referencing more easy, install the `citr` package in RStudio to enable a GUI to use references from your library. Citr allows connecting your Zotero database and using those references as well.
 
 
 
 
-* Creating a research compendium [@gentleman2007statistical]
+<!--* Creating a research compendium [@gentleman2007statistical]
 * Creating a project oriented workflow
 * Literate programming
 * Use of packrat for package management
 * Anonymization and Data replacement using `r cite_pkg("sdcMicro")`
-* Creating LNCS Papers using `r cite_pkg("rmdtemplates")` 
+* Creating LNCS Papers using `r cite_pkg("rmdtemplates")` -->
+
