@@ -54,22 +54,22 @@ osf_GUID <- "kcbj5"
 
 
 
-```{r child = '../rmds/introduction.Rmd'}
+```{r child = '../rmds/10_introduction.Rmd'}
 ```
 
-```{r child = '../rmds/research_compendium.Rmd'}
+```{r child = '../rmds/20_research_compendium.Rmd'}
 ```
 
-```{r child = '../rmds/open.Rmd'}
+```{r child = '../rmds/30_open.Rmd'}
 ```
 
-```{r child = '../rmds/drake.Rmd'}
+```{r child = '../rmds/40_drake.Rmd'}
 ```
 
-```{r child = '../rmds/procedure.Rmd', eval = TRUE}
+```{r child = '../rmds/50_procedure.Rmd', eval = TRUE}
 ```
 
-```{r child = '../rmds/discussion.Rmd', eval = TRUE}
+```{r child = '../rmds/60_discussion.Rmd', eval = TRUE}
 ```
 
 

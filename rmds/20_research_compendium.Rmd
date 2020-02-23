@@ -2,13 +2,14 @@
 title: donotuse
 ---
 # Writing a Reseach Compendium
+The central aim of a research compendium is to provide all data and information necessary to allow others to reproduce your findings [@gentleman2007statistical].
 
-[@gentleman2007statistical]
+[CRAN](https://cran.r-project.org/web/views/ReproducibleResearch.html).
 
 ## Project Workflow
 
 ## Literate programming
-
+renv
 
 * Creating a research compendium [@gentleman2007statistical]
 * Creating a project oriented workflow
