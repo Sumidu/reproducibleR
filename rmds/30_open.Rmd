@@ -2,14 +2,78 @@
 title: donotuse
 ---
 # Open Data and open code
-One key idea of reproducibility is makeing data and analysis code openly available.
+One key idea of reproducibility is makeing data and analysis code openly available. Sharing your code allows other researchers to inspect it and verify that your results are valid conclusions from your analyses. Research and analyses are complex processes and mistakes are bound to happen sometime. Mistakes are less severe when they can be retraced and results adapted. 
+Sharing your data allows other researchers to see what other information might have been undiscovered by your analyses. Studying open data can be used to explore new theories, used in meta-analyses and be used in teaching settings. Typically data is released under the CC0 license, making data part of the public domain.
 
 ## Data Sharing and Anonymization
+Sharing data is not just uploading your data to a website. First, several considerations must be made before data can be shared. The most important question is: "Does my data contain personal information?" Any data that was collected on human subjects potentially contains personal information. This has several implications. 
 
-## Github
+First, you must ask whether the participants agreed with data sharing. Typically, participants sign data waivers allowing researchers to use data for scientific purposes. It is important to inform participants about possibilities of sharing. 
 
+Second, information on people can be damaging for these people upon release. By allowing others to utilize your data, you must consider possible threats to your participants before deciding what data to release. It is crucial to inform yourself about data and anonymization before carelessly releasing information. For example, releasing information on your participants when they were students from a certain semester might leave individuals identifiable in your data set. Thus it may be necessary to either anonymize your data or to limit additional information on data gathering procedures (or both). It makes sense to speak to an expert on anonymization about this topic and to ask for permission from your organisations ethics board.
+
+### k-Anonymity
+The simplest form of anonymity can be generated if all quasi-identifiers of a person appear in the database even if they are from several other persons. Each person is then represented by the same data attributes, so that each person can no longer be distinguished from other persons with the same attributes. This concept is called *k* anonymity [@aggarwal2008general]. If at least *k* persons exist in a given data set, who are identically represented in terms of their quasi-identifiers, the data is k-anonymized. Each person is now in an *equivalence class* of at least $k-1$ other people who share the same *quasi-identifiers*.
+
+
+This method provides an intuitive version of privacy that is both algorithmically simple to implement and easy to explain to the participant. Technically, we can simply add noise to the data to enhance privacy. For example, we can remove the last digits of postal codes (data deletion) until at least *k* equal entries exist for each postal code. We can also store age groups instead of birth dates (data aggregation). 
+
+The advantage of this method is that our data is only slightly changed, as only the quality of the data is reduced. One problem is not solved with this method. It could be that the combination of quasi-identifiers and sensitive data could still be too informative for an external attacker. An insurance company might want to know that all persons from a region aged 65 and older suffer from heart disease. Even if no person is deanonymised in this scenario, all persons in the data set may suffer from the consequences of a possible secondary use of the data.
+
+The most important finding of k-anonymity is that the most important problem in anonymisation is not user identification, but data sensitivity and the possibilities of secondary use. For this purpose *l*-diversity [@machanavajjhala2007diversity] or *t*-closeness [@li2007t] may be considered.
+
+<!--
+### l-diversity
+The concept of *l*-diversity addresses the challenge of differences in the sensitivity of data [@machanavajjhala2007diversity]. Not only does it anonymize data by ensuring each set of quasi-identifiers appears at least a certain amount of time, it also ensures that in each group of "same" users at least a certain amount of diversity exists in the sensitive attributes. Thus, it no longer pays off for an privacy adversary to identify "vulnerable" subgroups whose sensitive information seems worthwhile. 
+
+A data set is assumed to be *l*-diverse when for each group of $k$ users with the same quasi-identifiers, we have at least $l$ different values in the sensitive information attributes. This is achieved by removing further information from the quasi-identifiers until a state is reached where at least $l$ different values are seen for each equivalence class of users. 
+
+While this process is algorithmically easy to implement, it already becomes harder to grasp for an end user as they now have to realize that definitively knowing sensitive attributes about their equivalence class poses a privacy risk. 
+
+However, even *l*-diversity suffers from another problem. Given that we have at least *l*-different values in each equivalence class, it could be that these l-different values are informative about the individuals as well. In the context of health, even a set of *l* different heart diseases reveals enough information about the type of illnesses in an equivalence class. The distribution of diseases has known properties that can be used to infer information about equivalence classes.  
+ 
+### t-closeness
+This problem is address by *t*-closeness [@li2007t]. In this method, data granularity is reduced with the aim of reducing the chance of deducing sensitive information from global distributions. Sensitive information is distributed in the data set the match known global distributions to ensure no connection can be made from these distributions. The distance of global and local distributions as referred to as $t$.
+
+-->
+
+### Differential privacy
+Often other scientists are not interested in individual data If only the statistical properties of a data set are interesting, it should be easy to ensure the privacy of individuals. However, it is still possible to obtain sensitive information about individual users by repeatedly querying a database. 
+
+Attackers can combine multiple queries to narrow down sensitive information about individuals. The idea behind Differential Privacy is to establish a privacy budget [@dwork2006calibrating]. 
+Whenever statistics are calculated on the data, the amount of information in these statistics is deducted from this privacy budget. This is achieved by replacing data with noisy data. 
+This means that two identical database queries will most likely yield different results. The more queries are received, the more different the results become until the database returns only noise. The database must now either be discarded or new data must be collected to increase the budget for data protection.
+
+The advantage of Differential Privacy is that there is a mathematically guaranteed privacy for each user. It is therefore impossible to gain knowledge about individuals from the retrieved information [@lee2011much]. 
+
+
+
+
+## Github and Git
+Sharing of code is a procedure that is natural to computers scientist, as almost all larger software products are team efforts. 
+Github has crystallized as the de-facto standard of sharing code for open source software. 
+What is Github and how do you use it?
+
+First, me must understand **Git**. 
+Git is a version control software (VCS). 
+Git allows you to keep track of changes in your files. 
+It allows you to store individual changes as so called *commits*. 
+Each individual commit can always be restored from the git *repository* on your computer. 
+Git works completely locally, so you can move project folders that are tracked by git around on your computer or others, without losing tracking information.  
+RStudio is completely integrated with Git, so committing to new versions of your project is as simple as a click.
+
+**Github** is a website that provides free repositories for open source software---or open source research. 
+Github allows you and your collaborators to work on the same project asynchronously. 
+By uploading (called *pushing*) your local git repository to the public Github repository your collaborators or other researchers get access to this project. 
+These people can now download the repository (called *pulling*) to their computer and work on the project or reproduce your analysis. 
+Git has extensive mechanisms for merging your and your collaborates project progresses. 
+Changes can be integrated on a line-by-line basis. 
+Thus it is best to break lines in your code frequently.
+
+It is important to note that Github is not the best place to store your data.
 
 ### Github Readme
+Beyond providing a publically available place to store your analysis code. Github serves as a publically accessible website to your research project. It is recommended to upload a `README.md` file that contains basic information about your research project. It could contain a DOI of the published article, it could contain links to other parts of the project such as data stores on the web. The benefit of Githuh readme files is that they will automatically render to a 
 
 ### Github Pages
 

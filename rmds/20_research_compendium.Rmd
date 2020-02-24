@@ -1,8 +1,8 @@
 ---
 title: donotuse
 ---
-# Writing a Reseach Compendium
-The central aim of a research compendium is to provide all data and information necessary to allow others to reproduce your findings from your data [@gentleman2007statistical]. There are several different ways of achieving this but a central theme of research compendia is to organize data in a meaningful fashion. Since we are adressing R users, it makes sense to consider possible computing environments for R first.
+# Writing a Research Compendium
+The central aim of a research compendium is to provide all data and information necessary to allow others to reproduce your findings from your data [@gentleman2007statistical]. There are several different ways of achieving this but a central theme of research compendium is to organize data in a meaningful fashion. Since we are addressing R users, it makes sense to consider possible computing environments for R first.
 
 You can find detailed further information on how to create research compendium online: https://research-compendium.science/
 
@@ -10,13 +10,13 @@ You can find detailed further information on how to create research compendium o
 ## Why R and RMarkdown?
 R is the de-facto standard when it comes to statistical analyses tools that are open source and free to use. In economics and the social sciences similar tools that provide a GUI like SPSS are used with one immediate downside for reproducibility. If your analysis toolkit is proprietary, other users will not be able to reproduce your work without a significant investment. 
 
-Moreover, using a GUI makes it intraceable---even to yourself---what analyses you have conducted later. You might have manually deleted a row with broken data, or might have recoded a typing error in your data manually. If this is not documented, this information is lost. Using a language like R, where every change of the data corresponds to line of code, no accidental "quick fixes" will get lost over time.
-R also provides a rich set of tools for reproducible researach on CRAN[^CRAN].
+Moreover, using a GUI makes it untraceable---even to yourself---what analyses you have conducted later. You might have manually deleted a row with broken data, or might have recoded a typing error in your data manually. If this is not documented, this information is lost. Using a language like R, where every change of the data corresponds to line of code, no accidental "quick fixes" will get lost over time.
+R also provides a rich set of tools for reproducible research on CRAN[^CRAN].
 
 [^CRAN]:https://cran.r-project.org/web/views/ReproducibleResearch.html
 
 ## Literate Programming
-*RMarkdown* is a tool that is extremely helpful for researchers, as it allows to combine analysis code with regular text. This document was written using RMarkdown and integrating some analysis code in between. RMarkdown is a *literate programming* appraoch. The documentation of code is equally necessary in understanding the code, as the code itself. By interleaving code and text, intentions of the developer are implicitly communicated. Python and Julia have similar approaches by using Jupyter notebooks.
+*RMarkdown* is a tool that is extremely helpful for researchers, as it allows to combine analysis code with regular text. This document was written using RMarkdown and integrating some analysis code in between. RMarkdown is a *literate programming* approach. The documentation of code is equally necessary in understanding the code, as the code itself. By interleaving code and text, intentions of the developer are implicitly communicated. Python and Julia have similar approaches by using Jupyter notebooks.
 
 RMarkdown allows not only for an integration of text and figures directly from code, it allows writing in an abstract format. A single document (such as this) can be rendered to various output format. In this case, it is rendered to the LNCS styled Latex output format, as well as to a website using bootstrap. The benefit is that text and code are reusable, so when papers get rejected no excessive reformatting has to be made. Formatting is down using Markdown (see [here](https://www.markdowntutorial.com/)[^1] for a tutorial).
 
@@ -33,18 +33,18 @@ Another key requirement for computational reproducibility is that the software v
 This is most safely achieved by keeping all libraries in the same version as in the original analysis. Sometimes libraries change their features and this can render old projects unusable. Using package management is not only a necessity for computational reproducibility, it is helpful for yourself, when you get back at a project. 
 There are several tools in the R universe that address this challenge. All of them have different efforts involved and provide different benefits.
 
-The **packrat** package [@R-packrat] comes integrated into RStudio and allows you to create a localized copy of the used libraries in your analysis. Packrat even downloads sources of these packages and allows using libraries from different sources (CRAN, github, etc.). Packrat provides a function (`packrat::bundle()`) to pack everything into a shareable file. Packrat sometimes has problems with multiple RMarkdown files in the project, causing it to rerender all documents to infer the used packages.
+The **packrat** package [@R-packrat] comes integrated into RStudio and allows you to create a localized copy of the used libraries in your analysis. Packrat even downloads sources of these packages and allows using libraries from different sources (CRAN, github, etc.). Packrat provides a function (`packrat::bundle()`) to pack everything into a shareable file. Packrat sometimes has problems with multiple RMarkdown files in the project, causing it to re-render all documents to infer the used packages.
 
-This is where the **renv** package [@R-renv] comes into play. It is a simplified version of package management and runs relatively reliable even with multiple RMarkdown files in the project. By calling `renv::init()` a lockfile is created that contains information on all packages used in the project. It does however, not download sources, so it will only work if the packages you use are expected to be available in the future as well.
+This is where the **renv** package [@R-renv] comes into play. It is a simplified version of package management and runs relatively reliable even with multiple RMarkdown files in the project. By calling `renv::init()` a lock file is created that contains information on all packages used in the project. It does however, not download sources, so it will only work if the packages you use are expected to be available in the future as well.
 
-Neither of these options though adresses the challenge of using the same R-version or the same operating system. Differences between Windows and Linux could yield different results in the future. This is where **docker** comes into play. Docker is a light-weight virtualization software that allows you to run a virtual machine based on other users machine images. It also provides a sharing platform for these images.
+Neither of these options though addresses the challenge of using the same R-version or the same operating system. Differences between Windows and Linux could yield different results in the future. This is where **docker** comes into play. Docker is a light-weight virtualization software that allows you to run a virtual machine based on other users machine images. It also provides a sharing platform for these images.
 Rocker provides a set of default virtual machine images[^2] that contain both a fixed R version and a set of libraries usable in research. By adding a `dockerfile` to a project, you can create a definition of your project that will build a matching machine image. Docker does require the user to install the docker software on their machine.
 
 [^2]: https://github.com/rocker-org/rocker
 
-There are options of sharing your runtime environment without asking other researchers to install software. RStudio comes with a cloud version that can (currently) be used for free, if the projects are either private or completely public. We running your project in RStudio and sharing the public link to a project, others can create copies of your runtime environment in their **rstudio.cloud** account.
+There are options of sharing your run-time environment without asking other researchers to install software. RStudio comes with a cloud version that can (currently) be used for free, if the projects are either private or completely public. We running your project in RStudio and sharing the public link to a project, others can create copies of your run-time environment in their **rstudio.cloud** account.
 
-An even simpler version is the use of **binder**. Binder can be setup to automatically build your project on a virtual machine and provide an RStudio instance on the virtual machine that has access to your project. However, to make this work, you need to use a version control system, more specifically you need to use github with your project. The auto-generated binder link from the www.mybinder.org website can be extended to use RStudio by adding `?urlpath=rstudio` to the url. You can check the Readme of this project on github to see how it is done. 
+An even simpler version is the use of **binder**. Binder can be setup to automatically build your project on a virtual machine and provide an RStudio instance on the virtual machine that has access to your project. However, to make this work, you need to use a version control system, more specifically you need to use github with your project. The auto-generated binder link from the www.mybinder.org website can be extended to use RStudio by adding `?urlpath=rstudio` to the URL. You can check the Read-me of this project on github to see how it is done. 
 
 ## Writing Articles using `rmdtemplates`
 The package `rmdtemplates` [@R-rmdtemplates] provides templates for writing RMarkdown files that adhere to the Lecture Notes in Computer Sciences series. It also contains a template for an open data website. This website allows to create a reader friendly version of your paper to send around. 
