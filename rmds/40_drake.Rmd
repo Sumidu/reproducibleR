@@ -10,13 +10,13 @@ One large challenge for literate programming is that for every small change in a
 
 The package `r cite_pkg("drake")` addresses this challenge. By creating a plan using the `drake_plan` function we first determine what steps are necessary for our analysis. Drake then analyzes our code and files for implicit dependencies. It derives a dependency tree (see Fig. \@ref(fig:drake)) that visually shows how the project should run.
 
-```{r drake, out.width="1\\linewidth", include=TRUE, fig.align="center", fig.cap=c("The drake plan to generate this document."), echo=FALSE}
+```{r drake, out.width="100%", include=TRUE, fig.align="center", fig.cap=c("The drake plan to generate this document."), echo=FALSE}
 knitr::include_graphics("../figures/drake.png")
 ```
 Each build target (e.g., `report`) is the call to an R function. The result of which can easily be reloaded anywhere inside the project using the `loadd` or `readd` function. In the simplistic build path for this document, the `hist` target creates a histogram of the `iris_data`, which is downloaded from the OSF. The figure (see Fig. \@ref(fig:drakeout)) is then included in the document. Whenever a single previous dependency becomes outdated, the rest of the dependency graph is executed.
 
 
-```{r drakeout, out.width="0.8\\linewidth", include=TRUE, fig.align="center", fig.cap=c("This figure was created  outside of the document in the hist target."), echo = FALSE}
+```{r drakeout, out.width="100%", include=TRUE, fig.align="center", fig.cap=c("This figure was created  outside of the document in the hist target."), echo = FALSE}
 library(drake)
 readd("hist")
 ```
@@ -60,7 +60,7 @@ Working with factors is not always easy in R. They will appear in alphabetic ord
 Creating custom plots using the `ggplot2` package creates usable figures for scientific papers. Yet, it may take a while to get accustomed to ggplot. The `r cite_pkg("esquisse")` package has an interactive addin (see Fig. \@ref(fig:esq)) that lets you drag and drop variables to axes, adjust layout and color, filter the data, and export the script that would generate the matching plot.
 
 
-```{r esq, out.width="1\\linewidth", include=TRUE, fig.align="center", fig.cap=c("This is the interface to the ggplot builder from esquisse."), echo = FALSE}
+```{r esq, out.width="100%", include=TRUE, fig.align="center", fig.cap=c("This is the interface to the ggplot builder from esquisse."), echo = FALSE}
 knitr::include_graphics("../figures/esquisse.png")
 library(ggstatsplot)
 ```
@@ -72,7 +72,7 @@ Knowing how to report a statistical finding often requires a deep understanding 
 The upcoming plot (Figure \@ref(fig:gg)) was created from a single line of code.
 
 
-```{r gg, out.width="1\\linewidth", include=TRUE, fig.align="center", fig.cap=c("A comparison of means using the iris data."), echo=TRUE, message=FALSE}
+```{r gg, out.width="100%", include=TRUE, fig.align="center", fig.cap=c("A comparison of means using the iris data."), echo=TRUE, message=FALSE}
 
 ggbetweenstats(iris, Species, Sepal.Width, messages = F)
 

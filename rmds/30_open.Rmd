@@ -61,7 +61,7 @@ It is important to note that GitHub is not the best place to store your data. In
 Beyond providing a publicly available place to store your analysis code. GitHub serves as a publicly accessible website for your research project. It is recommended to upload a `README.md` file that contains basic information about your research project. It could contain a DOI of the published article, it could contain links to other parts of the project such as data stores on the web. 
 The benefit of GitHub readme files is that they will automatically render a pretty HTML output on the website (see Fig. \@ref(fig:gh)).
 
-```{r gh, out.width="1\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Rendered Readme.MD file on GitHub."), echo=FALSE}
+```{r gh, out.width="100%", include=TRUE, fig.align="center", fig.cap=c("Rendered Readme.MD file on GitHub."), echo=FALSE}
 knitr::include_graphics("../figures/GitHubrm.png")
 ```
 
