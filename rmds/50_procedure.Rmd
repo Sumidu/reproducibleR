@@ -1,34 +1,46 @@
 ---
 title: donotuse
 ---
+## Create research plots using `DiagrammeR`
 
-# Procedure
 
-Process diagramms as in Figure \@ref(fig:diagramr) can easily be created using the `r rmdtemplates::cite_pkg("DiagrammeR")` Package.
+Even process diagramms as in Figure \@ref(fig:diagramr) can easily be created using the `r rmdtemplates::cite_pkg("DiagrammeR")` package. It requires writing a process description in the `dot` language which is relatively easy to learn.
 
-```{r diagramr, echo=TRUE, fig.cap="Example"}
+```{r diagramr, out.width="0.4\\linewidth", fig.align="center", echo=TRUE, fig.cap="Reproducible workflow using the tools from this paper."}
 
 library(DiagrammeR)
 
 grViz(diagram = "
       digraph boxes_and_cicrles {
       
-      graph [rankdir = LR]
+      graph [rankdir = TB]
       
       node [shape = box
             fontname = Helvetica
             ]
       'Setup OSF Project Site'
-      Test
+      'Setup R Project'
+      'Setup GitHub Repo'
+      'Ensure reproducibility using renv'
+      'Write analysis'
+      'Preregister Study'
+      'Collect Data'
       
       node [shape = circle]
       
       Start
+      'Submit Paper'
       
       edge []
       
       Start->'Setup OSF Project Site';
-      'Setup OSF Project Site'->Test;
+      'Setup OSF Project Site'->'Setup R Project';
+      'Setup R Project'->'Setup GitHub Repo';
+      'Setup GitHub Repo'->'Ensure reproducibility using renv';
+      'Ensure reproducibility using renv'->'Write analysis';
+      'Write analysis'->'Preregister Study';
+      'Preregister Study'->'Collect Data';
+      'Collect Data'->'Submit Paper'
       }
       "
 )
@@ -36,13 +48,4 @@ grViz(diagram = "
 ```
 
 
-## Separation of Analysis and Data-Collection
-
-## Anonymization of Raw Data
-
-Option 1 `sdcMicro` 
-Option 2 `anonymizer` 
-
-
-## Preregistration
 

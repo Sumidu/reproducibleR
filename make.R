@@ -77,7 +77,7 @@ if(interactive()) {
   readd(website)
 
   # what depends on what?
-  vis_drake_graph(plan)
+  vis_drake_graph(plan, targets_only = T, selfcontained = T)
 
   # Show history
   drake_history(analyze = TRUE)

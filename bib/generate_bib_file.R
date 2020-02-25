@@ -26,5 +26,7 @@ if(F){
   usethis::use_badge()
   webshot::appshot()
   renv::history()
-  
+  anonymizer::hash("test")
+  rrtools::add_dependencies_to_description()
+
 }
