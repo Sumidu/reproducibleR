@@ -3,8 +3,8 @@ title: donotuse
 ---
 # Discussion
 
-In this paper, we have very shortly introduced a large number of tools that can be utilized to make research more computationally reproducible. By integrating the different tools into a complete workflow, emergent effects from the interactions of the individual steps can be reaped. However, this workflow can easily become overwhelming as it includes multiple tools, each of which have large documents attached to them explaining on how to use them. You as a reader may decide on which tools to use from this set and which to ignore. Be warned though, that skipping some of the steps will reduce the benefits for other researchers and yourself.
+In this paper, we have very shortly introduced a large number of tools that can be utilized to make research more computationally reproducible. By integrating the different tools into a complete workflow, emergent effects from the interactions of the individual steps can be reaped. However, this workflow can easily become overwhelming as it includes multiple tools, each of which has large documents attached to them explaining how to use them. You as a reader may decide on which tools to use from this set and which to ignore. Be warned though, that skipping some of the steps will reduce the benefits for other researchers and yourself.
 
-We did not extensively elaborate on how some of these tools are used most effectively. We leave it up to you to deepen the knowledge some of these tools. In the future we want to create additional tutorial materials to made available on the website for this paper[^website].
+We did not extensively elaborate on how some of these tools are used most effectively. We leave it up to you to deepen the knowledge of some of these tools. This paper is supposed to act as reference to the mention packages. The web version of this paper will be continuously updated in the future. In the future, we want to create additional video tutorial materials made available on the website for this paper[^website].
 
-[^website]:(https://sumidu.github.io/reproducibleR/) 
+[^website]: https://sumidu.github.io/reproducibleR/

@@ -2,40 +2,25 @@
 title: donotuse
 ---
 # Open Data and Open Code
-One key idea of reproducibility is making data and analysis code openly available. Sharing your code allows other researchers to inspect it and verify that your results are valid conclusions from your analyses. Research and analyses are complex processes and mistakes are bound to happen sometime. Mistakes are less severe when they can be retraced and results adapted. 
+One key idea of reproducibility is making data and analysis code openly available. Sharing your code allows other researchers to inspect it and verify that your results are valid conclusions from your analyses. Research and statistical analyses are complex processes and mistakes are bound to happen sometime. Mistakes are less severe when they can be retraced and results adapted. 
 Sharing your data allows other researchers to see what other information might have been undiscovered by your analyses. Studying open data can be used to explore new theories, used in meta-analyses and be used in teaching settings. Typically data is released under the CC0 license, making data part of the public domain.
 
 ## Data Sharing and Anonymization
 Sharing data is not just uploading your data to a website. First, several considerations must be made before data can be shared. The most important question is: "Does my data contain personal information?" Any data that was collected on human subjects potentially contains personal information. This has several implications. 
 
-First, you must ask whether the participants agreed with data sharing. Typically, participants sign data waivers allowing researchers to use data for scientific purposes. It is important to inform participants about possibilities of sharing. 
+First, you must ask whether the participants agreed with data sharing. Typically, participants sign data waivers allowing researchers to use data for scientific purposes. It is important to inform participants about the possibilities of sharing. 
 
-Second, information on people can be damaging for these people upon release. By allowing others to utilize your data, you must consider possible threats to your participants before deciding what data to release. It is crucial to inform yourself about data and anonymization before carelessly releasing information. For example, releasing information on your participants when they were students from a certain semester might leave individuals identifiable in your data set. Thus it may be necessary to either anonymize your data or to limit additional information on data gathering procedures (or both). It makes sense to speak to an expert on anonymization about this topic and to ask for permission from your organisations ethics board.
+Second, information on people can be damaging to these people upon release. By allowing others to utilize your data, you must consider possible threats to your participants before deciding what data to release. It is crucial to inform yourself about data and anonymization before carelessly releasing information. For example, releasing information on your participants when they were students from a certain semester might leave individuals identifiable in your data set. Thus it may be necessary to either anonymize your data or to limit additional information on data gathering procedures (or both). It makes sense to speak to an expert on anonymization about this topic and to ask for permission from your organization's ethics board.
 
 ### k-Anonymity.
-The simplest form of anonymity can be generated if all quasi-identifiers of a person appear in the database even if they are from several other persons. Each person is then represented by the same data attributes, so that each person can no longer be distinguished from other persons with the same attributes. This concept is called *k* anonymity [@aggarwal2008general]. If at least *k* persons exist in a given data set, who are identically represented in terms of their quasi-identifiers, the data is k-anonymized. Each person is now in an *equivalence class* of at least $k-1$ other people who share the same *quasi-identifiers*.
+The simplest form of anonymity can be generated if all quasi-identifiers of a person appear mulitple times in the database from several other persons. Each person is then represented by the same data attributes so that each person can no longer be distinguished from other persons with the same attributes. This concept is called *k* anonymity [@aggarwal2008general]. If at least *k* persons exist in a given data set, who are identically represented in terms of their quasi-identifiers, the data is k-anonymized. Each person is now in an *equivalence class* of at least $k-1$ other people who share the same *quasi-identifiers*.
 
 
 This method provides an intuitive version of privacy that is both algorithmically simple to implement and easy to explain to the participant. Technically, we can simply add noise to the data to enhance privacy. For example, we can remove the last digits of postal codes (data deletion) until at least *k* equal entries exist for each postal code. We can also store age groups instead of birth dates (data aggregation). 
 
-The advantage of this method is that our data is only slightly changed, as only the quality of the data is reduced. One problem is not solved with this method. It could be that the combination of quasi-identifiers and sensitive data could still be too informative for an external attacker. An insurance company might want to know that all persons from a region aged 65 and older suffer from heart disease. Even if no person is de-anonymized in this scenario, all persons in the data set may suffer from the consequences of a possible secondary use of the data.
+The advantage of this method is that our data is only slightly changed, as only the quality of the data is reduced. One problem is not solved with this method. It could be that the combination of quasi-identifiers and sensitive data could still be too informative for an external attacker. An insurance company might want to know that all persons from a region aged 65 and older suffer from heart disease. Even if no person is de-anonymized in this scenario, all persons in the data set may suffer from the consequences of possible secondary use of the data.
 
 The most important finding of k-anonymity is that the most important problem in anonymization is not user identification, but data sensitivity and the possibilities of secondary use. For this purpose *l*-diversity [@machanavajjhala2007diversity] or *t*-closeness [@li2007t] may be considered. A package for R that provides an interactive tool for applying anonymization techniques to a data set is the `r cite_pkg("sdcMicro")` package. Another option is the `r cite_pkg("anonymizer")` package which provides methods for detecting potentially identifying information and replacing it with hashes.
-
-<!--
-### l-diversity
-The concept of *l*-diversity addresses the challenge of differences in the sensitivity of data [@machanavajjhala2007diversity]. Not only does it anonymize data by ensuring each set of quasi-identifiers appears at least a certain amount of time, it also ensures that in each group of "same" users at least a certain amount of diversity exists in the sensitive attributes. Thus, it no longer pays off for an privacy adversary to identify "vulnerable" subgroups whose sensitive information seems worthwhile. 
-
-A data set is assumed to be *l*-diverse when for each group of $k$ users with the same quasi-identifiers, we have at least $l$ different values in the sensitive information attributes. This is achieved by removing further information from the quasi-identifiers until a state is reached where at least $l$ different values are seen for each equivalence class of users. 
-
-While this process is algorithmically easy to implement, it already becomes harder to grasp for an end user as they now have to realize that definitively knowing sensitive attributes about their equivalence class poses a privacy risk. 
-
-However, even *l*-diversity suffers from another problem. Given that we have at least *l*-different values in each equivalence class, it could be that these l-different values are informative about the individuals as well. In the context of health, even a set of *l* different heart diseases reveals enough information about the type of illnesses in an equivalence class. The distribution of diseases has known properties that can be used to infer information about equivalence classes.  
- 
-### t-closeness
-This problem is address by *t*-closeness [@li2007t]. In this method, data granularity is reduced with the aim of reducing the chance of deducing sensitive information from global distributions. Sensitive information is distributed in the data set the match known global distributions to ensure no connection can be made from these distributions. The distance of global and local distributions as referred to as $t$.
-
--->
 
 ### Differential privacy.
 Often other scientists are not interested in individual data If only the statistical properties of a data set are interesting, it should be easy to ensure the privacy of individuals. However, it is still possible to obtain sensitive information about individual users by repeatedly querying a database. 
@@ -50,52 +35,51 @@ The advantage of Differential Privacy is that there is a mathematically guarante
 
 
 ## GitHub and Git
-Sharing of code is a procedure that is natural to computers scientist, as almost all larger software products are team efforts. 
-GitHub has crystallized as the de-facto standard of sharing code for open source software. 
+Sharing of code is a procedure that is natural to computers scientists, as almost all larger software products are team efforts. 
+GitHub has crystallized as the de-facto standard of sharing code for open-source software. 
 What is GitHub and how do you use it?
 
-First, me must understand **Git**. 
+First, we must understand **Git**. 
 Git is a version control software (VCS). 
 Git allows you to keep track of changes in your files. 
-It allows you to store individual changes as so called *commits*. 
-Each individual commit can always be restored from the git *repository* on your computer. 
-Git works completely locally, so you can move project folders that are tracked by git around on your computer or others, without losing tracking information.  
-RStudio is completely integrated with Git, so committing to new versions of your project is as simple as a click. Git has proven to be the most valuable tool in literate programming for science [@bryan2018excuse]. 
+It allows you to store individual changes as so-called *commits*. 
+Each individual commit can always be restored from the git *repository* on your computer. This gets read of the challenge of keeping multiple version files of a document.
+Git works completely locally, so you can move project folders that are tracked by git around on your computer or someone elses computer, without losing tracking information.  
+RStudio is completely integrated with Git, so committing new versions of your project is as simple as a click. Git has proven to be the most valuable tool in literate programming for science [@bryan2018excuse]. 
 
-**GitHub** is a website that provides free repositories for open source software---or open source research. 
+**GitHub** is a website that provides free repositories for open source software or open-source research. 
 GitHub allows you and your collaborators to work on the same project asynchronously. 
 By uploading (called *pushing*) your local git repository to the public GitHub repository your collaborators or other researchers get access to this project. 
 These people can now download the repository (called *pulling*) to their computer and work on the project or reproduce your analysis. 
-Git has extensive mechanisms for merging your and your collaborates project progresses. 
+Git has extensive mechanisms for merging your progress and your collaborator's project progress. 
 Changes can be integrated on a line-by-line basis. 
 Thus it is best to break lines in your code frequently.
 
 It is important to note that GitHub is not the best place to store your data. Individual files are limited to 100MB and projects are limited to 2GB.
 
 ### GitHub Readme.
-Beyond providing a publicly available place to store your analysis code. GitHub serves as a publicly accessible website to your research project. It is recommended to upload a `README.md` file that contains basic information about your research project. It could contain a DOI of the published article, it could contain links to other parts of the project such as data stores on the web. 
-The benefit of GitHub read-me files is that they will automatically render to a pretty HTML output on the website.
+Beyond providing a publicly available place to store your analysis code. GitHub serves as a publicly accessible website for your research project. It is recommended to upload a `README.md` file that contains basic information about your research project. It could contain a DOI of the published article, it could contain links to other parts of the project such as data stores on the web. 
+The benefit of GitHub readme files is that they will automatically render a pretty HTML output on the website (see Fig. \@ref(fig:gh)).
 
-```{r, out.width="1\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Rendered Readme.MD file on GitHub."), echo=FALSE}
+```{r gh, out.width="1\\linewidth", include=TRUE, fig.align="center", fig.cap=c("Rendered Readme.MD file on GitHub."), echo=FALSE}
 knitr::include_graphics("../figures/GitHubrm.png")
 ```
 
 ### GitHub Pages.
-If you have generated your analysis using RMarkdown you can render your output to a website as well. This provides the benefit of adding additional figures and making your document more accessible. By using libraries such as `plotly` other researchers can even explore your data using a visualization. The template from the `r cite_pkg("rmdtemplates")` package provides a nice pre-structured interactive website that allows you to include tabular data in the website. 
+If you have generated your analysis using RMarkdown you can render your output to a website as well. This provides the benefit of adding additional figures and making your document more accessible. By using libraries such as `plotly` other researchers can even explore your data using interactive visualizations. The template from the `r cite_pkg("rmdtemplates")` package provides a nice pre-structured interactive website that allows you to include tabular downloadable data in the website. 
 
 When you store your projects on GitHub, you can make your website publicly available easily. 
 By copying the output format to a sub-folder called `docs` and enabling GitHub Pages in your GitHub settings your page is exposed to the public without requiring a hosting service (except for GitHub). 
 
 ## OSF
-While GitHub is an excellent provider for storing the code of your analysis, it is not very well suited for sharing data and for reviewing purposes. The Open Science Foundation (OSF) provides a service where researchers can create projects that have Wikis, file storage, and transparent referencing. You may even choose the server where your data is stored, when data protection laws require your data to be in your country. 
+While GitHub is an excellent provider for storing the code of your analysis, it is not very well suited for sharing data and for reviewing purposes. The Open Science Foundation (OSF) provides a service where researchers can create projects that have Wikis, file storage, and transparent referencing. You may even choose the server where your data is stored when data protection laws require your data to be in your country. 
 
-A key benefit of the OSF is that you can create sub-modules in your project and share the whole project or the sub-modules individually with others. Each "node" in your project gets an easy to recognize and short unique URL which can be added to a paper or a website. More importantly, it allows sharing of parts of your project anonymously, during the reviewing process. The reviewers can see the available data, without seeing the authors names. But they also can verify that data has not been changed since the project has gone public.
+A key benefit of the OSF is that you can create sub-modules in your project and share the whole project or the sub-modules individually with others. Each "node" in your project gets an easy-to-recognize and short unique URL which can be added to a paper or a website. More importantly, it allows the sharing of parts of your project anonymously, during the reviewing process. The reviewers can see the available data, without seeing the authors' names. But they also can verify that data has not been changed since the project has gone public.
 
-To make things even better, there is a package called `r cite_pkg("osfr")` that lets you download (or upload) your data directly from your R or RMarkdown documents. This can be leveraged in the setup procedures of a document: "If the data is not available, try downloading it automatically." 
+To make things even better, there is a package called `r cite_pkg("osfr")` that lets you download (or upload) your data directly from your R or RMarkdown documents. This can be leveraged in the setup procedures of a document, as in: "If the data is not available, try downloading it automatically." 
 
 ### Preregistration.
-Another benefit of OSF is that you may preregister your study before collecting data. 
-By setting up a preregistration at the OSF and setting up the rest of your project before collecting data, you prevent yourself from HARKing in your research. 
-Preregistered trials are part of the gold standard of high quality social science research. Some journals have decided to accept studies after preregistration to prevent a publication bias of significant findings.
+Another benefit of the OSF is that you may preregister your study before collecting data. 
+By setting up preregistration at the OSF and setting up the rest of your project before collecting data, you prevent yourself from HARKing in your research. 
+Preregistered trials are part of the gold standard of high-quality social science research. Some journals have decided to accept studies after preregistration to prevent a publication bias towards significant findings.
 This does not mean that you can no longer conduct exploratory research on your data, it simply ensures that confirmatory and exploratory findings are clearly separated. 
-

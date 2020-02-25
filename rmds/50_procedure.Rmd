@@ -1,10 +1,10 @@
 ---
 title: donotuse
 ---
-## Create research plots using `DiagrammeR`
+## Create Research Plans Using `DiagrammeR`
 
 
-Even process diagramms as in Figure \@ref(fig:diagramr) can easily be created using the `r rmdtemplates::cite_pkg("DiagrammeR")` package. It requires writing a process description in the `dot` language which is relatively easy to learn.
+Even process diagrams as in Figure \@ref(fig:diagramr) can easily be created using the `r rmdtemplates::cite_pkg("DiagrammeR")` package. It requires writing a process description in the `dot` language which is relatively easy to learn.
 
 ```{r diagramr, out.width="0.4\\linewidth", fig.align="center", echo=TRUE, fig.cap="Reproducible workflow using the tools from this paper."}
 

@@ -3,8 +3,8 @@ title: donotuse
 ---
 # Introduction
 
-The scientific database Scopus lists over 73,000 entries for the search term "reproducible research" at the time of writing this document. The importance of making research reproducible was recognized in the early 1950s in multiple research subjects. And with the reproducibility project the Open Science Foundation [@open2015estimating] found that merely half of all studies conducted in psychological research can be replicated by other researchers. 
-Several factors have contributed to this problem. From a high level perspective, the pressure to publish and the increase in scientific output has lead to a plethora of findings that will not replicate. Both bad research design and (possibly unintentional) bad research practices have increased the amount of papers that hold little to no value. More than half of researchers agree that there is a severe reproducibility crisis in science according to @baker2016reproducibility and her article in Nature. The study also found that problems for reproducibility include: 1) lack of analysis code availability, lack of raw data availability, and problems with reproduction efforts.
+The scientific database Scopus lists over 73,000 entries for the search term "reproducible research" at the time of writing this document. The importance of making research reproducible was recognized in the early 1950s in multiple research subjects. And with the reproducibility project, the Open Science Foundation [@open2015estimating] found that merely half of all studies conducted in psychological research can be replicated by other researchers. 
+Several factors have contributed to this problem. From a high-level perspective, the pressure to publish and the increase in scientific output has lead to a plethora of findings that will not replicate. Both bad research design and (possibly unintentional) bad research practices have increased the number of papers that hold little to no value. More than half of researchers agree that there is a severe reproducibility crisis in science according to @baker2016reproducibility and her article in Nature. The study also found that problems for reproducibility include: a lack of analysis code availability, a lack of raw data availability, and problems with reproduction efforts.
 
 # Problematic Research Practices
 
@@ -12,14 +12,14 @@ One problem that is often mentioned is HARKing [@kerr1998harking] or "hypothesiz
 
 Another strategy applied (often without ill intent) is p-hacking [@head2015extent]. This technique is widespread in scientific publications and probably already is shifting consensus in science. p-hacking refers to techniques that alter the data until the desired *p*-value is reached. Omitting individual *outliers*, creating different grouping variables, adding or removing control variables---all these techniques can be considered p-hacking. This process also leads to results that will not hold under replication. It is crucial to show what modifications have been performed on data to evaluate the interpretability of *p*-values. 
 
-When researchers already "massage" the data to attain *better* *p*-values, it is additionally bad that many researchers do not understand the meaning of *p*-values. As @colquhoun2017reproducibility found, many research misinterpret *p*-values and thus frame their findings much stronger than they really are.
+When researchers already "massage" the data to attain *better* *p*-values, it is additionally bad that many researchers do not understand the meaning of *p*-values. As @colquhoun2017reproducibility found, many researchers misinterpret *p*-values and thus frame their findings much stronger than they really are.
 Adequate reporting of *p*-values is thus important to the interpretability of results as well.
 
-Lastly, scientific journals have to problem that they are mostly interested in publishing significant results. Thus contradictory "non-findings" seldom get published in renowned journals. There is little "value" for a researcher to publish non-significant findings, as the additional work to write a manuscript for something like *arXiv* does often not reap the same reward as a journal publication. This so-called *publication bias* [@simonsohn2014p] worsens the crisis. As now only significant findings are available. It is thus necessary to simplify the process of publishing non-significant results.
+Lastly, scientific journals have the problem that they are mostly interested in publishing significant results. Thus contradictory "non-findings" seldom get published in renowned journals. There is little "value" for a researcher to publish non-significant findings, as the additional work to write a manuscript for something like *arXiv* does often not reap the same reward as a journal publication. This so-called *publication bias* [@simonsohn2014p] worsens the crisis. As now only significant findings are available. It is thus necessary to simplify the process of publishing non-significant results.
 
 
 # Reproducible Research Workflows
-Many different solutions to this process have been proposed to address these challenges (e.g., [@marwick2018packaging;@wilson2017good]). However, no uniform process exists that allows creating of documents and alternative reproducibility materials in one workflow. 
+Many different solutions to this process have been proposed to address these challenges (e.g., [@marwick2018packaging;@wilson2017good]). However, no uniform process exists that allows the creating of documents and alternative reproducibility materials in one workflow. 
 
 In this paper, we demonstrate a research workflow based on the R-language and the R Markdown format. This paper was written using this workflow and the sources are freely available online (https://www.osf.io/kcbj5). Our workflow directly addresses the challenge of writing LNCS papers and a companion paper website (https://sumidu.github.io/reproducibleR/) that includes additional material and downloadable data.
 
@@ -28,14 +28,12 @@ In this paper, we demonstrate a research workflow based on the R-language and th
 In this paper, we will focus on the following aspects:
 
 * Creating a reproducible research compendium using RMarkdown
-* Using github and the OSF to make research accessible
+* Using GitHub and the OSF to make research accessible
 * Packages that simplify research in RStudio
 
 We assume that the reader is somewhat familiar with the R Programming language and knows that scientific analyses can be run using computational tools such as R, Python, Julia or others. The guidance in this paper addresses the R user.
 
 ## What is reproducibility?
-The Open Science Foundation (OSF) speaks of three different kinds of reproducibility [@Meyers_2017]. *Computational reproducibility* refers to the quality of research that when other researchers get access to your code and data that they will be able to reproduce your results. *Empirical reproducibility* means that your research has sufficient information that allows other researchers to recreate your experiments and copy your study. *Replicability* refers to the quality of an outcome and a study, meaning that given that you were to reproduce the experiment, you would also reach the same outcome. In this article we provide tools for the first type of reproducibility only, as the latter are both dependent on your research content not exclusively on your procedure. It is import to note that creating computationally reproducible research is important, but it is also worthless when basic concepts of methods and research processes are ignored. If you measure incorrectly, your result may reproduce, but the finding my be wrong anyways. Hopefully, others will be able to point this out to you more easily.
-
-
-
-
+The Open Science Foundation (OSF) speaks of three different kinds of reproducibility [@Meyers_2017]. *Computational reproducibility* refers to the quality of research that when other researchers get access to your code and data that they will be able to reproduce your results. *Empirical reproducibility* means that your research has sufficient information that allows other researchers to recreate your experiments and copy your study. *Replicability* refers to the quality of an outcome and a study, meaning that given that you were to reproduce the experiment, you would also reach the same outcome. In this article, we provide tools for the first type of reproducibility only, as the latter are both dependent on your research content not exclusively on your procedure. It is important to note that creating computationally reproducible research is important, but it is also worthless when basic concepts of methods and research processes are ignored. 
+If you measure incorrectly, your result may reproduce, but the finding may be wrong anyways. 
+Hopefully, when you are using the suggested workflow here, others will be able to point out mistakes to you more easily.
