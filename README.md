@@ -4,6 +4,7 @@
 
 [Open Data Website](https://sumidu.github.io/reproducibleR/)
 
-A LNCS Paper describing how to conduct reproducible research using R.
+A LNCS Paper describing how to conduct reproducible research using R, written using the methods described in the paper.
 
-DOI to follow
+URL: https://link.springer.com/chapter/10.1007/978-3-030-49570-1_3
+Video-Tutorial: https://t1p.de/reproducible
